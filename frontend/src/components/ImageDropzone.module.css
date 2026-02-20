@@ -1,0 +1,136 @@
+.wrapper {
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.zone {
+  border: 1px solid var(--border-strong);
+  border-radius: 2px;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  background: var(--paper-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.zone::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px dashed var(--border);
+  border-radius: 1px;
+  pointer-events: none;
+  transition: border-color 0.2s;
+}
+
+.zone:hover, .zone.dragging {
+  background: var(--amber-pale);
+  border-color: var(--amber);
+}
+
+.zone:hover::before, .zone.dragging::before {
+  border-color: rgba(184, 114, 42, 0.3);
+}
+
+.zone.loading {
+  cursor: default;
+  background: var(--paper-dark);
+}
+
+.hiddenInput {
+  display: none;
+}
+
+/* Idle state */
+.idle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.iconFrame {
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.zone:hover .iconFrame {
+  color: var(--amber);
+  transform: translateY(-2px);
+}
+
+.mainText {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+}
+
+.subText {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.link {
+  color: var(--amber);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hint {
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+}
+
+/* Loading state */
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--border-strong);
+  border-top-color: var(--amber);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loadingText {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--ink);
+}
+
+.loadingSubtext {
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+/* Error */
+.error {
+  font-size: 0.78rem;
+  color: #c0392b;
+  padding: 0.4rem 0.75rem;
+  background: rgba(192, 57, 43, 0.06);
+  border-left: 2px solid #c0392b;
+}
