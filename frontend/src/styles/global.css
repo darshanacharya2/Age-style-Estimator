@@ -1,0 +1,52 @@
+:root {
+  --ink: #1a1410;
+  --ink-light: #3d322a;
+  --paper: #f8f4ee;
+  --paper-dark: #ede8df;
+  --paper-darker: #ddd6c8;
+  --amber: #b8722a;
+  --amber-light: #d4945a;
+  --amber-pale: #f5e6d0;
+  --muted: #8a7b6e;
+  --border: rgba(26, 20, 16, 0.12);
+  --border-strong: rgba(26, 20, 16, 0.25);
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-mono: "Geist Mono", "Courier New", monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+  /* Subtle paper grain texture */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+input, textarea { font-family: inherit; }
+
+::selection {
+  background: rgba(184, 114, 42, 0.2);
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--paper-dark); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 2px; }

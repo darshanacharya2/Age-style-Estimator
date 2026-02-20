@@ -1,0 +1,19 @@
+{
+  "name": "age-style-estimator-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Age & Style Estimator",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.36.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.2.0",
+    "multer": "^1.4.5-lts.1"
+  }
+}
